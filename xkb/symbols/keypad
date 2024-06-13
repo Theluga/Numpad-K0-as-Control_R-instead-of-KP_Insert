@@ -25,5 +25,6 @@ xkb_symbols "x11" {
     
     key <RCTL> {[  Control_R  ]};
     modifier_map Control { <RCTL> };
+    modifier_map Mod3   { Scroll_Lock };
 };
 
