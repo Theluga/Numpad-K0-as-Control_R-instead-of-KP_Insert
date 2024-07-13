@@ -4,3 +4,5 @@
 
 Lenovo Ideapad Gaming 3: Has numpad but no right control. The position of kp0 is perfect for right control.
 added scroll lock led control
+
+and some of my .files
