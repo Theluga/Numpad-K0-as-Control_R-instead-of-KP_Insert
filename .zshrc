@@ -5,6 +5,8 @@ export TERM="xterm-256color"
 
 bindkey "^[[3~" delete-char
 bindkey '^[[2~' overwrite-mode 
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
 
 ## Options section
 HISTFILE=$HOME/.zhistory
