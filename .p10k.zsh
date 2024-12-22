@@ -1425,6 +1425,14 @@
   # More specifically, it's P9K_CONTENT prior to the application of context expansion (see below)
   # that gets matched. If you unset all POWERLEVEL9K_AZURE_*CONTENT_EXPANSION parameters,
   # you'll see this value in your prompt. The second element of each pair in
+        
+  export POWERLEVEL9K_SHOW_RULER=false
+  export POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
+  export POWERLEVEL9K_MULTILINE_FIRST_PROMPT_SUFFIX=''
+  export POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_SUFFIX=''
+  export POWERLEVEL9K_MULTILINE_LAST_PROMPT_SUFFIX=''
+  export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()    
+  
   # POWERLEVEL9K_AZURE_CLASSES defines the account class. Patterns are tried in order. The
   # first match wins.
   #
