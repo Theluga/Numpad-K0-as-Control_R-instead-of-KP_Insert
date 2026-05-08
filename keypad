@@ -1,0 +1,29 @@
+default  hidden partial keypad_keys
+xkb_symbols "x11" {
+
+    include "keypad(operators)"
+
+    key  <KP7> { [ KP_7, KP_Home ] };
+    key  <KP8> { [ KP_8, KP_Up ] };
+    key  <KP9> { [ KP_9, KP_Prior ] };
+
+    key  <KP4> { [ KP_4, KP_Left ] };
+    key  <KP5> { [ KP_5, KP_Begin ] };
+    key  <KP6> { [ KP_6, KP_Right ] };
+
+    key  <KP1> { [ KP_1, KP_End ] };
+    key  <KP2> { [ KP_2, KP_Down ] };
+    key  <KP3> { [ KP_3, KP_Next ] };
+    key <KPEN> { [ KP_Enter ] };
+    key <KPEQ> { [ KP_Equal ] };
+
+    key <KPDL> { [ KP_Decimal, KP_Delete ] };
+    key <KPPT> { [ KP_Decimal, KP_Decimal ] };
+
+    key  <KP0> { [ KP_0, Control_R ] };
+    modifier_map Control { <KP0> };
+
+    key <RCTL> { [ Control_R ] };
+    modifier_map Control { <RCTL> };
+    modifier_map Mod3   { Scroll_Lock };
+};
