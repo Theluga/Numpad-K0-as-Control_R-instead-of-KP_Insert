@@ -62,15 +62,11 @@ bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
-
-# Shift+Arrows remapped
-# bindkey '^[[1;2D' backward-word     # Shift+Left
-# bindkey '^[[1;2C' forward-word      # Shift+Right
 bindkey '^[[1;5D' backward-word     # Ctrl+Left
 bindkey '^[[1;5C' forward-word      # Ctrl+Right
+bindkey '^[[1;5H' beginning-of-buffer-or-history
+bindkey '^[[1;5F' end-of-buffer-or-history
 
-bindkey '^[[1;2A' beginning-of-line # Shift+Up
-bindkey '^[[1;2B' end-of-line       # Shift+Down
 
 set_block_cursor() { printf '\e[1 q'; }
 set_line_cursor() { printf '\e[3 q'; }
