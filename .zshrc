@@ -64,8 +64,11 @@ bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
 # Shift+Arrows remapped
-bindkey '^[[1;2D' backward-word     # Shift+Left
-bindkey '^[[1;2C' forward-word      # Shift+Right
+# bindkey '^[[1;2D' backward-word     # Shift+Left
+# bindkey '^[[1;2C' forward-word      # Shift+Right
+bindkey '^[[1;5D' backward-word     # Ctrl+Left
+bindkey '^[[1;5C' forward-word      # Ctrl+Right
+
 bindkey '^[[1;2A' beginning-of-line # Shift+Up
 bindkey '^[[1;2B' end-of-line       # Shift+Down
 
