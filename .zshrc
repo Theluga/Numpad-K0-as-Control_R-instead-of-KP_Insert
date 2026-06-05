@@ -9,18 +9,22 @@ fi
 
 # ===== 2. Environment & General Options =====
 export TERM="xterm-256color"
+export EDITOR='/usr/bin/nano'
+
 POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 HISTFILE=$HOME/.zhistory
-SAVEHIST=1000
-HISTSIZE=1000
+SAVEHIST=50000
+HISTSIZE=50000
 setopt correct                  # Auto correct mistakes
 setopt nobeep                   # No beep
 setopt histignorespace          # Don't save commands that start with space
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY           # Append to history, don't overwrite
+setopt SHARE_HISTORY            # Share history across multiple zsh sessions
+setopt HIST_IGNORE_ALL_DUPS     # Delete old recorded entry if new entry is a duplicate
+setopt HIST_REDUCE_BLANKS       # Remove superfluous blanks before recording entry
+setopt HIST_VERIFY              # Show command with history expansion to user before running it
+setopt INC_APPEND_HISTORY       # Add commands to history immediately, not when shell exits
 
 # ===== 3. Completions Setup (MUST BE BEFORE ZSTYLE/PLUGINS) =====
 fpath=(/usr/share/zsh/site-functions $fpath)
@@ -51,6 +55,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias ls='ls --color=auto'
+alias bat='bat --color=always --paging=never --theme=TwoDark'
 
 # ===== 5. Theme Initialization =====
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
@@ -98,6 +103,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(handle_enter)
 
+
 # 7b. Fast Syntax Highlighting
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
@@ -105,3 +111,9 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+# 8. fzf
+source <(fzf --zsh)
+# Use an if/else statement to check if the item is a directory (-d)
+export FZF_DEFAULT_OPTS="--preview 'if [ -d {} ]; then ls -la --color=always {}; else bat --color=always --style=numbers --line-range :100 {}; fi'"
+export FZF_COMPLETION_OPTS="--preview 'if [ -d {} ]; then ls -la --color=always {}; else bat --color=always --style=numbers --line-range :100 {}; fi'"
