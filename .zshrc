@@ -86,8 +86,9 @@ toggle_overtype_mode() {
     fi
 }
 handle_enter() {
-    zle accept-line    
+#    zle accept-line    
     set_block_cursor
+    zle .accept-line
 }
 
 zle -N toggle_overtype_mode
